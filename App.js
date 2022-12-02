@@ -10,6 +10,9 @@ export default function App() {
 
     <Text>welcome to the news app !</Text>
 
+
+    <Text>yo yo yo </Text>
+
       <StatusBar style="auto" />
     </View>
   );
