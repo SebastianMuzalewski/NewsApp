@@ -6,6 +6,7 @@ export default function App() {
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
       <Text>New lines added new app created! </Text>
+      <Text>Hello World!</Text>
       <StatusBar style="auto" />
     </View>
   );
