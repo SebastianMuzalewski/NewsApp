@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput} from 'react-native';
 
 export default function App() {
   return (
@@ -8,10 +8,11 @@ export default function App() {
       <Text>New lines added new app created! </Text>
       <Text>Hello World!</Text> 
 
-    <Text>welcome to the news app !</Text>
+      <Text>welcome to the news app !</Text>
 
+      <TextInput maxLength={100}></TextInput>
 
-    <Text>yo yo yo </Text>
+      <Text>yo yo yo </Text>
 
       <StatusBar style="auto" />
     </View>
