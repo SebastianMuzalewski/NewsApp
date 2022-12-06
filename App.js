@@ -1,23 +1,25 @@
+/*
+Jonathan and Sebastian main code base, for news applciation.  
+
+
+(https://newsapi.org/) - first api source. 
+
+(https://rapidapi.com/mikilior1/api/FinancialTimes) - second api source.
+*/
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput} from 'react-native';
+
+
+
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
-      <Text>New lines added new app created! </Text>
-      <Text>Hello World!</Text> 
-
-      <Text>welcome to the news app !</Text>
-
-      <TextInput maxLength={100}></TextInput>
-
-      <Text>yo yo yo </Text>
-
-      <StatusBar style="auto" />
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
