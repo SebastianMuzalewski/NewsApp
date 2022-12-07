@@ -1,3 +1,10 @@
+/* @Page: 2 | Search
+ * Component is used to render search page of the application.
+ * 
+ * 
+ */
+
+
 import React from 'react'
 import { StyleSheet, Text, View, TextInput} from 'react-native';
 

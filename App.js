@@ -1,26 +1,33 @@
-/*
-Jonathan and Sebastian main code base, for news applciation.  
+/* @authors: Sebastian/Johnathan @Date:07/12/22 
+ * @Course&Section: Cross-Platfrom Mobile Development/CPAN-213-0NC
+ * The purpose of this Application is to ...
+ */ 
 
+/* Programming Notes:
+ * npm start | Starts the project, Select android
+ * 
+ */
 
-(https://newsapi.org/) - first api source. 
-- key 4a5e392a47c042e6b534cffbfe4fa64d
+// First API source: (https://newsapi.org/) - Key: 4a5e392a47c042e6b534cffbfe4fa64d
+// Second API souuce: (https://rapidapi.com/mikilior1/api/FinancialTimes) - Key:
 
-
-(https://rapidapi.com/mikilior1/api/FinancialTimes) - second api source.
-*/
+// Imported Components
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput} from 'react-native';
 
+// All components imported, Navigation is only contained within app.js. 
 import Home from './components/Home';
 import Search from './components/Search';
 import ViewLatest from './components/ViewLatest';
-// All components imported, navigation only within this app.js. 
+
 
 //START OF NAVIGATION IMPORTS
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 //END OF NAVIGATION IMPORTS
 const Stack = createNativeStackNavigator();
+
+// Main App
 export default function App() {
   return (
     <NavigationContainer>
@@ -34,6 +41,7 @@ export default function App() {
   );
 }
 
+// Styling
 const styles = StyleSheet.create({
   container: {
     flex: 1,
