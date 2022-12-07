@@ -11,9 +11,9 @@ Jonathan and Sebastian main code base, for news applciation.
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput} from 'react-native';
 
-import{Home} from './components/Home';
-import{Search} from './components/Search';
-import {ViewLatest} from './components/ViewLatest';
+import Home from './components/Home';
+import Search from './components/Search';
+import ViewLatest from './components/ViewLatest';
 // All components imported, navigation only within this app.js. 
 
 
