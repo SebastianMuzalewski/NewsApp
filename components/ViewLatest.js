@@ -1,3 +1,9 @@
+/* @Page: 3 | ViewLatest
+ * Component is used to render the viewLastest news page of the application.
+ * 
+ * 
+ */
+
 import React from 'react'
 import { StyleSheet, Text, View, TextInput} from 'react-native';
 
