@@ -2,41 +2,64 @@
  * Breifing: Component is used to render the viewLastest news page of the application.
  * API02: RefreshAPI | Status: Started | Purpose: To render a random api based on a button being pressed
  * Animation04: Sequence animation | Status : Incomplete | Purpose: NA
- */
 
-import React from 'react'
-import { StyleSheet, Text, View, TextInput, Button} from 'react-native';
-// api key = 4a5e392a47c042e6b534cffbfe4fa64d
-//api link https://financialtimesmikilior1v1.p.rapidapi.com/getAspectsList
+API FOR THIS PAGE - (https://newsapi.org/) 
+Jonathan's API Key - 4a5e392a47c042e6b534cffbfe4fa64d
+*/
 
+import React from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import FinancialNews from './FinancialNews';
+import Comment from './Comment';
+// this is a new component that we will use for a user to input there message this component will demonstrate alerts.
 
-function ViewLatest({navigation}) {
+import { useEffect, useState } from 'react';
+import { FlatList, ActivityIndicator } from 'react-native';
 
+import { Modal, Pressable, Alert } from 'react-native';
 
-  var url = 'https://newsapi.org/v2/everything?' +
-  'q=Apple&' +
-  'from=2022-12-08&' +
-  'sortBy=popularity&' +
-  'apiKey=4a5e392a47c042e6b534cffbfe4fa64d';
+function ViewLatest({ navigation }) {
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState();
+  const [response, setResponse] = useState();
+  // states set
 
-var req = new Request(url);
+  //make the api call to get the news articles
+  useEffect(() => {
+    fetch(
+      'https://newsapi.org/v2/top-headlines?country=us&apiKey=4a5e392a47c042e6b534cffbfe4fa64d'
+    )
+      .then((response) => response.json())
+      .then((json) => setData(json.articles))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  }, []);
 
-fetch(req)
-.then(function(response) {
-console.log(response.json());
-})
-
-  return ( 
-    <View>
-<<<<<<< HEAD
-      <Text>Welcome to the latest news! </Text>
-=======
-      <Text>ViewLatest page to render latest news.</Text>
-      <Button title="Next Page" onPress={() => navigation.navigate("FinancialNews")}></Button>
->>>>>>> 6187a771c60d6aff42995770e028e33bf134f364
+  return (
+    // make a flat list to display the articles by title and description ,put them in a card and make the card display the content when pressed
+    <View style={{ flex: 1, padding: 24 }}>
+      {isLoading ? (
+        <ActivityIndicator />
+      ) : (
+        <FlatList
+          data={data}
+          keyExtractor={({ id }, index) => id}
+          renderItem={({ item }) => (
+            <View>
+              <Text>{item.title}</Text>
+              <Text>{item.description}</Text>
+              <Button
+                title="Leave a comment"
+                onPress={() => navigation.navigate('Comment')}
+              ></Button>
+            </View>
+          )}
+        />
+      )}
     </View>
-  )
+  );
 }
 
-export default ViewLatest
+const styles = StyleSheet.create({});
+
+export default ViewLatest;

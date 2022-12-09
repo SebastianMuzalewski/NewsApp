@@ -13,6 +13,8 @@ import { StyleSheet, Text, View, TextInput, Button} from 'react-native';
 function Home({ navigation }) {
   return (
     <View>
+
+
       <Text>Home page to render Application description.</Text>
       
       <Button title="SEARCH PAGE" onPress={() => navigation.navigate("Search")}></Button>

@@ -21,6 +21,8 @@ import Search from './components/Search';
 import ViewLatest from './components/ViewLatest';
 import Animations from './components/Animations';
 import FinancialNews from './components/FinancialNews';
+import Comment from './components/Comment';
+
 
 
 //START OF NAVIGATION IMPORTS
@@ -39,6 +41,7 @@ export default function App() {
         <Stack.Screen name="ViewLatest" component={ViewLatest} />
         <Stack.Screen name="FinancialNews" component={FinancialNews} />
         <Stack.Screen name="Animations" component={Animations} />
+        <Stack.Screen name = "Comment" component = {Comment} /> 
       </Stack.Navigator>
     </NavigationContainer>
 
