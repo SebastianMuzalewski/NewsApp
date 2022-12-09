@@ -4,7 +4,7 @@
  */ 
 
 /* Programming Notes:
- * npm start | Starts the project, Select android
+ * npm start | Starts the project, Select android {a}
  * 
  */
 
@@ -19,6 +19,8 @@ import { StyleSheet, Text, View, TextInput} from 'react-native';
 import Home from './components/Home';
 import Search from './components/Search';
 import ViewLatest from './components/ViewLatest';
+import Animations from './components/Animations';
+import FinancialNews from './components/FinancialNews';
 
 
 //START OF NAVIGATION IMPORTS
@@ -35,6 +37,8 @@ export default function App() {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Search" component={Search} />
         <Stack.Screen name="ViewLatest" component={ViewLatest} />
+        <Stack.Screen name="FinancialNews" component={FinancialNews} />
+        <Stack.Screen name="Animations" component={Animations} />
       </Stack.Navigator>
     </NavigationContainer>
 
