@@ -15,7 +15,8 @@ function Home({ navigation }) {
     <View>
       <Text>Home page to render Application description.</Text>
       
-      <Button title="Next Page" onPress={() => navigation.navigate("Search")}></Button>
+      <Button title="SEARCH PAGE" onPress={() => navigation.navigate("Search")}></Button>
+      <Button title="VIEW LATEST" onPress={() => navigation.navigate("ViewLatest")}></Button>
     </View>
   )
 }
