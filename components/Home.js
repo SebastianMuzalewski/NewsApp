@@ -1,5 +1,5 @@
 /* @Page: 1 | Home Page
- * Component is used to render home page of the application.
+ * Breifing: Component is used to render home page of the application.
  * 
  * 
  */
