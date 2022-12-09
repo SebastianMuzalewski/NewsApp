@@ -37,7 +37,7 @@ function ViewLatest({ navigation }) {
 
   return (
     // make a flat list to display the articles by title and description ,put them in a card and make the card display the content when pressed
-    <View style={{ flex: 1, padding: 24 }}>
+    <View style={styles.container}>
       {isLoading ? (
         <ActivityIndicator />
       ) : (
@@ -45,12 +45,13 @@ function ViewLatest({ navigation }) {
           data={data}
           keyExtractor={({ id }, index) => id}
           renderItem={({ item }) => (
-            <View>
+            <View style={styles.text}>
               <Text>{item.title}</Text>
               <Text>{item.description}</Text>
               <Button
                 title="Leave a comment"
                 onPress={() => navigation.navigate('Comment')}
+                styles={styles.button}
               ></Button>
             </View>
           )}
@@ -60,6 +61,65 @@ function ViewLatest({ navigation }) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 10,
+  },
+
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+
+  openButton: {
+    backgroundColor: '#F194FF',
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
+  },
+
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+  },
+
+  text: {
+    fontSize: 30,
+    alignSelf: 'center',
+    color: 'red',
+  },
+});
 
 export default ViewLatest;
