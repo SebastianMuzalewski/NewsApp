@@ -10,6 +10,8 @@ import React from 'react'
 import { StyleSheet, Text, View, TextInput, Animated, Easing, Image} from 'react-native';
 import { useRef, useEffect } from 'react';
 
+
+
 function SpinningLogo() {
   const spinValue = new Animated.Value(0);
 
@@ -36,7 +38,7 @@ return (
          style={{
          transform: [{rotate}]
          }}>
-           <Image source={require('../assets/logo.png')} style={{ alignSelf: "center"}}/>
+        <Image source={require('../assets/Logo.png')} style={{width: 200, height: 200}}/>
        </Animated.View>
   </View>
  )
