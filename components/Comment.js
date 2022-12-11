@@ -28,9 +28,7 @@ function Comment() {
         title="Submit"
         onPress={() => Alert.alert('Your comment has been submitted')}
       />
-
-      
-
+    
     </View>
 
 
