@@ -1,9 +1,10 @@
 /* @Page: 1 | Home Page
  * Breifing: Component is used to render home page of the application.
+ * Animation02: Falling title text | Status : Complete | Purpose: When the app runs for the first
+ * time text will fall down from the top of the screen
 
 
-
-  This home page will focus on ourr ability to demonstrate navigation between pages, and using 
+  This home page will focus on our ability to demonstrate navigation between pages, and using 
   the Modal component, Pressable component will also be incorporated into this section. 
 
  */
@@ -14,7 +15,7 @@ import ViewLatest from './ViewLatest';
 import { NavigationContainer } from '@react-navigation/native';
 
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button, Modal } from 'react-native';
+import { StyleSheet, Text, View, Easing, Button, Modal, Animated } from 'react-native';
 // our components imported above.
 import { Alert } from 'react-native';
 import { Pressable } from 'react-native';
@@ -25,14 +26,30 @@ import { useState } from 'react';
 import { MaterialIcons } from '@expo/vector-icons';
 // Just a package that was founded which has icons we can use, if needed.
 
+import { useRef, useEffect } from 'react';
+// Used for animationss
+
 function Home({ navigation }) {
   // a state will need to be tracking our modal.
   const [modalOpen, setModalOpen] = useState(false);
 
+  const ddS = useRef(new Animated.ValueXY({ x: 0, y: 0 })).current;
+
+  useEffect(() => {
+    Animated.timing(ddS, {easing: Easing.bounce,toValue: 100,duration: 2000,}).start();
+  });
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Welcome to Sebestian and Jonathan's Application!</Text>
-
+      <Animated.View
+        style={{
+          position: 'absolute',
+          top: ddS.x,
+          backgroundColor: 'greyy',
+          margin: 15
+        }}>
+      <Text style={styles.text}>Welcome to the News App</Text>
+      </Animated.View>
       <Modal
         visible={modalOpen}
         animationType="fade"
@@ -73,8 +90,8 @@ function Home({ navigation }) {
       ></Button>
 
       <Button
-        title="View our animation page!"
-        onPress={() => navigation.navigate('Animation')}
+        title="View our animations page!"
+        onPress={() => navigation.navigate('Animations')}
         styles={styles.button}
       >
       </Button>

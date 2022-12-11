@@ -1,7 +1,6 @@
 /* @Page: 5 | Animations Page
  * Breifing: This component is used to render animations page of the application.
  * Animation01: Spinning Logo | Status: Complete | Purpose: To show our offical logo
- * Animation02: Rising Text | Status : Incomplete | Purpose: NA
  * Animation03: 
  */
 
@@ -37,7 +36,7 @@ return (
          style={{
          transform: [{rotate}]
          }}>
-           <Image source={require('../assets/Logo.png')} style={{ alignSelf: "center"}}/>
+           <Image source={require('../assets/logo.png')} style={{ alignSelf: "center"}}/>
        </Animated.View>
   </View>
  )
