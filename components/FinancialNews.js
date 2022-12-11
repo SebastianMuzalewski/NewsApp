@@ -41,7 +41,7 @@ function FinancialNews({navigation}) {
   return (
     <View style={styles.container}>
       <Animated.View style={{ transform: [{translateX: translation.x }]}}>
-          <Text>This will be the serach bar</Text>
+          <Search/>
       </Animated.View>
     </View>
 

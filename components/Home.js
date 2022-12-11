@@ -2,6 +2,7 @@
  * Breifing: Component is used to render home page of the application.
  * Animation02: Falling title text | Status : Complete | Purpose: When the app runs for the first
  * time text will fall down from the top of the screen
+ * Animation04: Stagger "Navbar" | Status : Complete | Purpose: For show mainly, I think it looks cool
 
 
   This home page will focus on our ability to demonstrate navigation between pages, and using 
@@ -38,6 +39,43 @@ function Home({ navigation }) {
   useEffect(() => {
     Animated.timing(ddS, {easing: Easing.bounce,toValue: 100,duration: 2000,}).start();
   });
+
+  const leftSide01 = useRef(
+    new Animated.ValueXY({ x: -100, y: 0 })
+  ).current;
+
+  const rightSide01 = useRef(
+    new Animated.ValueXY({ x: 100, y: 0 })
+  ).current;
+  const leftSide02 = useRef(
+    new Animated.ValueXY({ x: -100, y: 0 })
+  ).current;
+
+  const rightSide02 = useRef(
+    new Animated.ValueXY({ x: 100, y: 0 })
+  ).current;
+  
+    useEffect(() => {
+      Animated.stagger(1000, [
+        Animated.spring(leftSide01.x, {
+          toValue: 0,
+          useNativeDriver: true,
+        }),
+        Animated.spring(rightSide01.x, {
+          toValue: 0,
+          useNativeDriver: true,
+        }),
+        Animated.spring(leftSide02.x, {
+          toValue: 0,
+          useNativeDriver: true,
+        }),
+        Animated.spring(rightSide02.x, {
+          toValue: 0,
+          useNativeDriver: true,
+        }),
+      ]).start();
+    }, []);
+  
 
   return (
     <View style={styles.container}>
@@ -77,34 +115,47 @@ function Home({ navigation }) {
         onPress={() => setModalOpen(true)}
       />
 
+      <Animated.View style={{transform: [
+        { translateX: leftSide01.x },
+        { translateY: leftSide01.y }],}}>
       <Button
-        title="View Latest News"
+        title="View Latest"
         onPress={() => navigation.navigate('ViewLatest')}
         styles={styles.button}
       ></Button>
+      </Animated.View>
 
+      <Animated.View style={{transform: [
+        { translateX: rightSide01.x },
+        { translateY: rightSide01.y }],}}>
       <Button
-        title="View Financial News"
+        title="View Financial"
         onPress={() => navigation.navigate('FinancialNews')}
         styles={styles.button}
       ></Button>
+      </Animated.View>
 
+      <Animated.View style={{transform: [
+        { translateX: leftSide02.x },
+        { translateY: leftSide02.y }],}}>
       <Button
-        title="View our animations page!"
-        onPress={() => navigation.navigate('Animations')}
+        title="View About"
+        onPress={() => navigation.navigate('About')}
         styles={styles.button}
       >
       </Button>
+      </Animated.View>
 
+      <Animated.View style={{transform: [
+        { translateX: rightSide02.x },
+        { translateY: rightSide02.y }],}}>
       <Button
-        title="View our progress bar page!"
+        title="View progress bar"
         onPress={() => navigation.navigate('ProgressBar')}
-        styles={styles.button}
-
-      >
-
+        styles={styles.button}>
       </Button>
-
+      </Animated.View>
+      
     </View>
   );
 }

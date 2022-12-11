@@ -11,7 +11,7 @@ function Search({navigation}) {
   
   return (
     <View>
-        <Text>Search page to render search bar.</Text>
+        <Text>This will be the serach bar.</Text>
     </View>
   )
 }
