@@ -29,7 +29,6 @@ import ProgressBar from './components/ProgressBar';
 //START OF NAVIGATION IMPORTS
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
 //END OF NAVIGATION IMPORTS
 const Stack = createNativeStackNavigator();
 
