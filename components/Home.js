@@ -31,7 +31,7 @@ function Home({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Welcome to the News App</Text>
+      <Text style={styles.text}>Welcome to Sebestian and Jonathan's Application!</Text>
 
       <Modal
         visible={modalOpen}

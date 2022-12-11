@@ -30,8 +30,6 @@ function Comment() {
       />
     
     </View>
-
-
   );
 }
 
