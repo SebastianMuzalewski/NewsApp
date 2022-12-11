@@ -71,6 +71,23 @@ function Home({ navigation }) {
         onPress={() => navigation.navigate('FinancialNews')}
         styles={styles.button}
       ></Button>
+
+      <Button
+        title="View our animation page!"
+        onPress={() => navigation.navigate('Animation')}
+        styles={styles.button}
+      >
+      </Button>
+
+      <Button
+        title="View our progress bar page!"
+        onPress={() => navigation.navigate('ProgressBar')}
+        styles={styles.button}
+
+      >
+
+      </Button>
+
     </View>
   );
 }

@@ -22,12 +22,14 @@ import ViewLatest from './components/ViewLatest';
 import Animations from './components/Animations';
 import FinancialNews from './components/FinancialNews';
 import Comment from './components/Comment';
+import ProgressBar from './components/ProgressBar';
 
 
 
 //START OF NAVIGATION IMPORTS
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 //END OF NAVIGATION IMPORTS
 const Stack = createNativeStackNavigator();
 
@@ -42,6 +44,7 @@ export default function App() {
         <Stack.Screen name="FinancialNews" component={FinancialNews} />
         <Stack.Screen name="Animations" component={Animations} />
         <Stack.Screen name = "Comment" component = {Comment} /> 
+        <Stack.Screen name = "ProgressBar" component = {ProgressBar} />
       </Stack.Navigator>
     </NavigationContainer>
 
