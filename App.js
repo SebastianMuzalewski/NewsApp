@@ -1,11 +1,13 @@
 /* @authors: Sebastian/Johnathan @Date:07/12/22 
  * @Course&Section: Cross-Platfrom Mobile Development/CPAN-213-0NC
- * The purpose of this Application is to ...
+ * The purpose of this Application is to design a friendly news applications for users
+ * to enjoy. We provide pages that users can visit such as Latest News, Financial News, Dev Page
+ * and Progress Bar page.
  */ 
 
 /* Programming Notes:
  * npm start | Starts the project, Select android {a}
- * 
+ * npm install "Whatever pacakages" | Instal the neccessary packages for our application to start running
  */
 
 // First API source: (https://newsapi.org/) - Key: 4a5e392a47c042e6b534cffbfe4fa64d
@@ -23,8 +25,6 @@ import About from './components/About';
 import FinancialNews from './components/FinancialNews';
 import Comment from './components/Comment';
 import ProgressBar from './components/ProgressBar';
-
-
 
 //START OF NAVIGATION IMPORTS
 import { NavigationContainer } from '@react-navigation/native';
@@ -46,7 +46,6 @@ export default function App() {
         <Stack.Screen name="ProgressBar" component = {ProgressBar} />
       </Stack.Navigator>
     </NavigationContainer>
-
   );
 }
 

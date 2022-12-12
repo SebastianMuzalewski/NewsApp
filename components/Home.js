@@ -1,45 +1,42 @@
-/* @Page: 1 | Home Page
- * Breifing: Component is used to render home page of the application.
+/* @Navbar Page: 0 | Home Page
+ * Breifing: This home page will focus on our ability to demonstrate navigation between pages, and using 
+ * the Modal component, Pressable component will also be incorporated into this section. 
  * Animation02: Falling title text | Status : Complete | Purpose: When the app runs for the first
  * time text will fall down from the top of the screen
  * Animation04: Stagger "Navbar" | Status : Complete | Purpose: For show mainly, I think it looks cool
-
-
-  This home page will focus on our ability to demonstrate navigation between pages, and using 
-  the Modal component, Pressable component will also be incorporated into this section. 
-
  */
-
-import FinancialNews from './FinancialNews';
-import ViewLatest from './ViewLatest';
 
 import { NavigationContainer } from '@react-navigation/native';
 
 import React from 'react';
+// Necessary react native components 
 import { StyleSheet, Text, View, Easing, Button, Modal, Animated } from 'react-native';
-// our components imported above.
+
 import { Alert } from 'react-native';
+// Pressable imported for modal to be interactive.
 import { Pressable } from 'react-native';
-// pressable imported for modal to be interactive.
+
+// Import useState to track our modal state.
 import { useState } from 'react';
-// import useState to track our modal state.
 
-import { MaterialIcons } from '@expo/vector-icons';
 // Just a package that was founded which has icons we can use, if needed.
+import { MaterialIcons } from '@expo/vector-icons';
 
+// Used for animations
 import { useRef, useEffect } from 'react';
-// Used for animationss
 
 function Home({ navigation }) {
-  // a state will need to be tracking our modal.
   const [modalOpen, setModalOpen] = useState(false);
+  // A state will need to be tracking our modal.
 
-  const ddS = useRef(new Animated.ValueXY({ x: 0, y: 0 })).current;
+  // Drop down Title Animation
+  const ddT = useRef(new Animated.ValueXY({ x: 0, y: 0 })).current;
 
   useEffect(() => {
-    Animated.timing(ddS, {easing: Easing.bounce,toValue: 100,duration: 2000,}).start();
+    Animated.timing(ddT, {easing: Easing.bounce,toValue: 100,duration: 2000,}).start();
   });
 
+  // Stacking Animations
   const leftSide01 = useRef(
     new Animated.ValueXY({ x: -100, y: 0 })
   ).current;
@@ -82,7 +79,7 @@ function Home({ navigation }) {
       <Animated.View
         style={{
           position: 'absolute',
-          top: ddS.x,
+          top: ddT.x,
           backgroundColor: 'greyy',
           margin: 15
         }}>
@@ -115,11 +112,12 @@ function Home({ navigation }) {
         onPress={() => setModalOpen(true)}
       />
 
+       
       <Animated.View style={{transform: [
         { translateX: leftSide01.x },
         { translateY: leftSide01.y }],}}>
       <Button
-        title="View Latest"
+        title="Latest News"
         onPress={() => navigation.navigate('ViewLatest')}
         styles={styles.button}
       ></Button>
@@ -129,7 +127,7 @@ function Home({ navigation }) {
         { translateX: rightSide01.x },
         { translateY: rightSide01.y }],}}>
       <Button
-        title="View Financial"
+        title="Financial News"
         onPress={() => navigation.navigate('FinancialNews')}
         styles={styles.button}
       ></Button>
@@ -139,7 +137,7 @@ function Home({ navigation }) {
         { translateX: leftSide02.x },
         { translateY: leftSide02.y }],}}>
       <Button
-        title="View About"
+        title="About the Devs"
         onPress={() => navigation.navigate('About')}
         styles={styles.button}
       >
@@ -150,16 +148,16 @@ function Home({ navigation }) {
         { translateX: rightSide02.x },
         { translateY: rightSide02.y }],}}>
       <Button
-        title="View progress bar"
+        title="Progress bar"
         onPress={() => navigation.navigate('ProgressBar')}
         styles={styles.button}>
       </Button>
-      </Animated.View>
-      
+      </Animated.View>  
     </View>
   );
 }
 
+//Styling
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#CF1D4',

@@ -1,15 +1,18 @@
-/* @Page: 5 | About us page
- * Breifing: This component is used to render the about us page of the application.
- * Animation01: Spinning Logo | Status: Complete | Purpose: To show our offical logo
- * Animation05: 
+/* @Navbar Page: 3 | About
+ * Breifing: This is responsible for showing the users who developed the page and the logo
+ * of our application.
+ * Animation01: Spinning Logo | Status: Almost Complete | Purpose: To show our offical logo
+ * Animation05: Double Image | Status: Incomplete | Purpose: To show off two handson developers
+ * that created this app.
  */
-
 
 import React from 'react'
 
-import { StyleSheet, Text, View, TextInput, Animated, Easing, Image} from 'react-native';
+// Necessary react native components 
+import { StyleSheet, Text, View, Animated, Easing, Image} from 'react-native';
 import { useRef, useEffect } from 'react';
 
+// Spinning logo function
 function SpinningLogo() {
   const spinValue = new Animated.Value(0);
 
@@ -39,6 +42,7 @@ return (
  )
 }
 
+// Temporary Function for functionality of our two images displaying
 function Box(props){
   return <Animated.View style={[styles.cube,{
     top:props.Top,backgroundColor:props.Color,left:props.Left,width:100}]}>
@@ -50,14 +54,11 @@ function About() {
   
   const leader = useRef( new Animated.Value(0)).current;
   const follower = useRef( new Animated.Value(0)).current; 
-  //Here the follower object is a spring that follows the leader within the toValue where
-  //it's mass is dependent on how fast it moves and the velocity determining the speed
-  //of the object
+
   Animated.spring(follower, { toValue: leader}).start();
-  //here timining is used to move the leader object to it's final poistion
+  
   Animated.spring(leader, { toValue: 250}).start();
   
-  //Leader and follower objects
   return (
     <View >
       <SpinningLogo/>
@@ -67,6 +68,7 @@ function About() {
   );
 }
 
+// Styling
 const styles = StyleSheet.create({
   cube: {    
     position: 'absolute',
@@ -79,6 +81,5 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 3,},
  });
-
 
 export default About
