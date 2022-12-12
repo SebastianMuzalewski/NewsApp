@@ -1,13 +1,14 @@
-/* @Page: 3 | ViewLatest
- * Breifing: Component is used to render the viewLastest news page of the application.
- * API02: RefreshAPI | Status: Started | Purpose: To render a random api based on a button being pressed
- * Animation04: Sequence animation | Status : Incomplete | Purpose: NA
+/* @Navbar Page: 1| View Latest Page
+ * Breifing: Page is responsible to render the latest news and provided users with the ability to comment on those news sections
+ * API02: RefreshAPI | Status: Completed | Purpose: To render a random api based on a button being pressed
+ */
 
-API FOR THIS PAGE - (https://newsapi.org/) 
-Jonathan's API Key - 4a5e392a47c042e6b534cffbfe4fa64d
-*/
+// API FOR THIS PAGE - (https://newsapi.org/) 
+// Jonathan's API Key - 4a5e392a47c042e6b534cffbfe4fa64d
+
 
 import React from 'react';
+// Necessary react native components 
 import { StyleSheet, Text, View, Button } from 'react-native';
 import FinancialNews from './FinancialNews';
 import Comment from './Comment';

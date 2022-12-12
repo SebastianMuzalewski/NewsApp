@@ -1,19 +1,20 @@
-/*
-This page is repsonsible for demonstrating our ability to work 
-with React Native's Progress Bar component.
-*/
+/* @Navbar Page: 4 | Progress Bar Page
+ * Breifing: This page is repsonsible for demonstrating our ability to work 
+ * with React Native's Progress Bar component.
+ */
+
 import React from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 import { useState } from 'react';
 import * as Progress from 'react-native-progress';
 import Constants from 'expo-constants';
-// necessary imports provided above.
+// Necessary imports provided above.
 function ProgressBar() {
   const [color, setColor] = useState('red');
   const [text, setText] = useState('');
   const counter = text.length;
-  //two states are created, one for the color of the progress bar, and one for the text input.
-  // one constant to keep track of the length of the text input
+  // Two states are created, one for the color of the progress bar, and one for the text input.
+  // One constant to keep track of the length of the text input
   const handleTextChange = (text) => {
     setText(text);
     if (counter > 0 && counter < 10) {
@@ -40,9 +41,9 @@ function ProgressBar() {
       setColor('brown');
     }
   };
-  // a function to change the color of the progress bar based on the length of the text input
+  // A function to change the color of the progress bar based on the length of the text input
   return (
-    //make a view with text input and a prorgess bar, and make the progress bar change color based on the length of the text input
+    // A view with text input and a prorgess bar, and make the progress bar change color based on the length of the text input
     <View style={styles.container}>
       <Text style={styles.text}>
         Enter some text to see the progress bar change color!
@@ -63,6 +64,7 @@ function ProgressBar() {
   );
 }
 
+// Styling
 const styles = StyleSheet.create({
   container: {
     flex: 1,

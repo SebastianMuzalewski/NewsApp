@@ -1,21 +1,21 @@
-/*
-This page will demonstrate our ability to produce alerts 
-when a user enters in their comment and presses a button. 
-
-
-*/
+/* @Comment Page: - | Comment Page
+ * Breifing: This page will demonstrate our ability to produce alerts 
+ * when a user enters in their comment and presses a button. 
+ */
 
 import React from 'react';
+// Necessary react native components 
 import { StyleSheet, Text, View, TextInput , Button} from 'react-native';
-// our necessary react native components are all imported in the line above. 
 
-import{Alert} from 'react-native';
-// here we have our alert component to handle alerts when user presses a button.
+// Alert component
+// Which handle alerts when user presses a button.
+import { Alert } from 'react-native';
 
 function Comment() {
  
   return (
-    // make a view which contains the text input and the button, and make an alert when the button is pressed to let the user know they are about to submit a comment
+    // A View which contains the text input and the button, and make an alert 
+    // when the button is pressed to let the user know they are about to submit a comment
 
     <View style={styles.container}>
       <Text style={styles.text}>Tell us about  the interesting article you saw on the view latest news page.  </Text>
@@ -28,11 +28,11 @@ function Comment() {
         title="Submit"
         onPress={() => Alert.alert('Your comment has been submitted')}
       />
-    
     </View>
   );
 }
 
+// Styling
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-  
     padding: 40,
     fontSize: 30,
     color: 'black',
@@ -52,7 +51,6 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: '#fff',
     margin: 10,
-
     padding: 8,
     color: 'black',
     borderRadius: 14,
@@ -61,9 +59,6 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderWidth: 1,
   },
-  
 });
-
-
 
 export default Comment;

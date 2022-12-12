@@ -1,17 +1,22 @@
-/* @Page: 4 | Financial News
- * Breifing: Component is used to render financialNews api page of the application.
+/* @Navbar Page: 2 | Financial News
+ * Breifing: This is responsible for rendering financialNews api page of the application.
+ * As well provide a search functionality for users to search for an new article
  * API01: View news from api | Status: Not Implemented | Purpose: To show a list of news apis
- * Animation03: 
+ * Animation03: Shaking Search | Status; Nearly Complete | Purpose: To show the user where the search bar is
  */
 
 import React from 'react'
-import { StyleSheet, Text, View, Button, Animated, Easing, useNativeDriver} from 'react-native';
+
+// Necessary react native components 
+import { StyleSheet, Text, View, Button, Animated, Easing} from 'react-native';
 import {FlatList, ActivityIndicator} from 'react-native'; 
 import {useState, useEffect, useRef} from 'react';
 
+// Where the search bar will be imported
 import Search from "./Search" 
-
+StyleSheet
 function FinancialNews({navigation}) {
+  // Search bar animation
   const translation = useRef(
     new Animated.ValueXY({ x: 0, y: 0 })
   ).current;
@@ -41,13 +46,12 @@ function FinancialNews({navigation}) {
   return (
     <View style={styles.container}>
       <Animated.View style={{ transform: [{translateX: translation.x }]}}>
-          <Text>This will be the serach bar</Text>
+          <Search/>
       </Animated.View>
     </View>
-
-  )
-  }
+  )}
   
+  // Stylesheet
   const styles = StyleSheet.create({
     container: {
       backgroundColor: '#CF1D4',
