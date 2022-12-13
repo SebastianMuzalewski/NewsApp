@@ -31,8 +31,7 @@ function SpinningLogo() {
       toValue: 1,
       duration: 1500,
       easing: Easing.linear,
-
-      useNativeDriver:true,
+     useNativeDriver:true,
     // use native driver supposed to get rid of this error? 
     
     }).start(() => spin());
@@ -42,8 +41,8 @@ function SpinningLogo() {
     <View>
       <Animated.View style={{ transform: [{ rotate }] }}>
         <Image
-          source={require('../assets/Logo.png')}
-          style={{ width: 200, height: 200, alignSelf: 'center' }}
+          source={require('../assets/logo.png')}
+          style={{ width: 200, height: 200, alignSelf: 'center', borderRadius: 200/2, borderColor: 'black', borderWidth: 3 }}
         />
       </Animated.View>
     </View>
@@ -51,48 +50,69 @@ function SpinningLogo() {
 }
 
 // Temporary Function for functionality of our two images displaying
-function Box(props) {
+function BoxExplination(props) {
   return (
     <Animated.View
       style={[
-        styles.cube,
+        styles.portrait,
         {
           top: props.Top,
           backgroundColor: props.Color,
           left: props.Left,
           width: 100,
+          borderColor: 'black',
+          borderWidth: 3,
+          width: 175
         },
       ]}
     >
+      <Image source={props.source} style={{ width: 150, height: 150, alignSelf: 'center', borderColor: 'black', borderWidth: 3}}/>
       <Text style={{ color: props.TextColor }}>{props.Text}</Text>
     </Animated.View>
   );
 }
 
 function About() {
-  const leader = useRef(new Animated.Value(0)).current;
-  const follower = useRef(new Animated.Value(0)).current;
+  const dev01 = useRef(new Animated.Value(0)).current;
+  const dev02 = useRef(new Animated.Value(0)).current;
 
-  Animated.spring(follower, { toValue: leader }).start();
-
-  Animated.spring(leader, { toValue: 250 }).start();
+ 
+  Animated.spring(dev02, { toValue: dev01 }).start();
+  Animated.spring(dev01, { toValue: 350 }).start();
 
   return (
     <View>
+      <Text style = {{
+        marginTop: 25,
+        marginBottom: 25,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        fontStyle: 'italic',
+        fontSize: 20}}
+        >Dispatch Times Logo!</Text>
       <SpinningLogo />
-      <Box
-        Top={leader}
-        Text="Leader"
-        Color="#1c9c33"
-        TextColor="white"
-        Left={250}
+      <Text style = {{
+        marginTop: 25,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        fontStyle: 'italic',
+        fontSize: 20,}}
+        >The Developers who made this application!</Text>
+      <BoxExplination
+        Top={dev01}
+        Text="Sebastain Muzalewski"
+        Color="#94AC02"
+        TextColor="black"
+        Left={210}
+        source={require('../assets/dev01.png')}   
       />
-      <Box
-        Top={follower}
-        Text="Follower"
-        Color="#601c9c"
-        TextColor="white"
-        Left={50}
+      <BoxExplination
+        Top={dev02}
+        Text="Jonathan Mohabir"
+        Color="#70D1F4"
+        TextColor="black"
+        Left={10}
+        source={require('../assets/dev02.png')}  
       />
     </View>
   );
@@ -100,7 +120,7 @@ function About() {
 
 // Styling
 const styles = StyleSheet.create({
-  cube: {
+  portrait: {
     position: 'absolute',
     borderWidth: 1,
     borderColor: 'purple',
