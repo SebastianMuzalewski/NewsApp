@@ -41,7 +41,7 @@ function SpinningLogo() {
     <View>
       <Animated.View style={{ transform: [{ rotate }] }}>
         <Image
-          source={require('../assets/logo.png')}
+          source={require('../assets/Logo.png')}
           style={{ width: 200, height: 200, alignSelf: 'center', borderRadius: 200/2, borderColor: 'black', borderWidth: 3 }}
         />
       </Animated.View>

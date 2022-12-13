@@ -12,9 +12,45 @@ import { StyleSheet, Text, View, Button, Animated, Easing} from 'react-native';
 import {FlatList, ActivityIndicator} from 'react-native'; 
 import {useState, useEffect, useRef} from 'react';
 
+
+// Function below to fetch data from the financial news api to return market news
 // Where the search bar will be imported
 import Search from "./Search" 
 StyleSheet
+
+
+function DisplayFinanceNews(){
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  const API = 'https://api.marketaux.com/v1/news/all?symbols=TSLA%2CAMZN%2CMSFT&filter_entities=true&language=en&api_token=ab5LvS5Ha5miJ57KuwP1JgZUmVi4iph8aCjqaY10'
+
+  // display the data from the api in a flatlist 
+  useEffect(() => {
+
+    fetch(API)
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  }
+  , []);
+    return(
+      <View style={styles.container}>
+        {isLoading ? <ActivityIndicator/> : (
+          <FlatList
+            data={data}
+            keyExtractor={({ id }, index) => id}
+            renderItem={({ item }) => (
+              <Text>{item.title}, {item.description}</Text>
+            )}
+          />
+        )}
+      </View>
+    );
+}
+
+
+
 function FinancialNews({navigation}) {
   // Search bar animation
   const translation = useRef(
@@ -43,10 +79,14 @@ function FinancialNews({navigation}) {
     ]).start();
   }, []);
  
+
+
+
+
   return (
     <View style={styles.container}>
       <Animated.View style={{ transform: [{translateX: translation.x }]}}>
-          <Search/>
+        <DisplayFinanceNews/>
       </Animated.View>
     </View>
   )}
