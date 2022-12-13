@@ -50,11 +50,12 @@ function Home({ navigation }) {
 
   // Stacking Animations
   const leftSide01 = useRef(new Animated.ValueXY({ x: -100, y: 0 })).current;
-
   const rightSide01 = useRef(new Animated.ValueXY({ x: 100, y: 0 })).current;
-  const leftSide02 = useRef(new Animated.ValueXY({ x: -100, y: 0 })).current;
 
+  const leftSide02 = useRef(new Animated.ValueXY({ x: -100, y: 0 })).current;
   const rightSide02 = useRef(new Animated.ValueXY({ x: 100, y: 0 })).current;
+
+  const leftSide03 = useRef(new Animated.ValueXY({ x: -100, y: 0 })).current;
 
   useEffect(() => {
     Animated.stagger(1000, [
@@ -71,6 +72,10 @@ function Home({ navigation }) {
         useNativeDriver: true,
       }),
       Animated.spring(rightSide02.x, {
+        toValue: 0,
+        useNativeDriver: true,
+      }),
+      Animated.spring(leftSide03.x, {
         toValue: 0,
         useNativeDriver: true,
       }),
@@ -174,8 +179,17 @@ function Home({ navigation }) {
           onPress={() => navigation.navigate('ProgressBar')}
           styles={styles.button}
         ></Button>
+      </Animated.View>
 
-        <Button
+      <Animated.View
+        style={{
+          transform: [
+            { translateX: leftSide03.x },
+            { translateY: leftSide03.y },
+          ],
+        }}
+      >
+      <Button
           title="Go to our Counter"
           onPress={() => navigation.navigate('CounterScreenApp')}
           styles={styles.button}
