@@ -88,7 +88,7 @@ function Home({ navigation }) {
         style={{
           position: 'absolute',
           top: ddT.x,
-          backgroundColor: 'greyy',
+          backgroundColor: 'white',
           margin: 15,
         }}
       >
@@ -202,13 +202,13 @@ function Home({ navigation }) {
 //Styling
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#CF1D4',
-    flex: 1,
     backgroundColor: 'white',
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
   text: {
+    color: 'white',
     padding: 40,
     position: 'relative',
     fontSize: 30,
