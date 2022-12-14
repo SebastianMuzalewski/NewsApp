@@ -143,11 +143,7 @@ function Home({ navigation }) {
           ],
         }}
       >
-        <Button
-          title="Animation Page "
-          onPress={() => navigation.navigate('SecondaryAnimation')}
-          styles={styles.button}
-        ></Button>
+
 
         <Button
           title="Stock Price Page  "

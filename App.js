@@ -20,7 +20,7 @@ import Home from './components/Home';
 import Search from './components/Search';
 import ViewLatest from './components/ViewLatest';
 import About from './components/About';
-import SecondaryAnimation from './components/SecondaryAnimation';
+
 import Comment from './components/Comment';
 import ProgressBar from './components/ProgressBar';
 import CounterScreenApp from './components/CounterScreenApp';
@@ -42,7 +42,6 @@ export default function App() {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Search" component={Search} />
         <Stack.Screen name="ViewLatest" component={ViewLatest} />
-        <Stack.Screen name="SecondaryAnimation"component={SecondaryAnimation} />
         <Stack.Screen name="About" component={About} />
         <Stack.Screen name="Comment" component={Comment} />
         <Stack.Screen name="ProgressBar" component={ProgressBar} />

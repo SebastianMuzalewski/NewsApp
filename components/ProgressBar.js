@@ -1,94 +1,138 @@
-/* @Navbar Page: 4 | Progress Bar Page
- * Breifing: This page is repsonsible for demonstrating our ability to work 
- * with React Native's Progress Bar component.
- */
+import { Animated, Easing } from 'react-native';
+import { useEffect, useState, useRef } from 'react';
 
-import React from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
-import { useState } from 'react';
 import * as Progress from 'react-native-progress';
 import Constants from 'expo-constants';
-// Necessary imports provided above.
+
 function ProgressBar() {
+  // declare a new animation for spring, paralell, and sequence
+  const springValue = useRef(new Animated.Value(0)).current;
+  const paralellValue = useRef(new Animated.Value(0)).current;
+  const sequenceValue = useRef(new Animated.Value(0)).current;
+
   const [color, setColor] = useState('red');
   const [text, setText] = useState('');
   const counter = text.length;
-  // Two states are created, one for the color of the progress bar, and one for the text input.
-  // One constant to keep track of the length of the text input
-  const handleTextChange = (text) => {
-    setText(text);
-    if (counter > 0 && counter < 10) {
-      setColor('red');
-    } else if (counter >= 10 && counter < 20) {
-      setColor('orange');
-    } else if (counter >= 20 && counter < 30) {
-      setColor('yellow');
-    } else if (counter >= 30 && counter < 40) {
+
+  useEffect(() => {
+    if (counter > 10) {
       setColor('green');
-    } else if (counter >= 40 && counter < 50) {
-      setColor('blue');
-    } else if (counter >= 50 && counter < 60) {
-      setColor('purple');
-    } else if (counter >= 60 && counter < 70) {
-      setColor('pink');
-    } else if (counter >= 70 && counter < 80) {
-      setColor('black');
-    } else if (counter >= 80 && counter < 90) {
-      setColor('grey');
-    } else if (counter >= 90 && counter < 100) {
-      setColor('white');
-    } else if (counter >= 100) {
-      setColor('brown');
+    } else {
+      setColor('red');
     }
-  };
-  // A function to change the color of the progress bar based on the length of the text input
+  }, [counter]);
+
+  useEffect(() => {
+    Animated.spring(springValue, {
+      toValue: 1,
+      friction: 1,
+      useNativeDriver: true,
+    }).start();
+  }, []);
+
+  useEffect(() => {
+    Animated.parallel([
+      Animated.timing(paralellValue, {
+        toValue: 1,
+        duration: 2000,
+        useNativeDriver: true,
+      }),
+      Animated.timing(paralellValue, {
+        toValue: 1,
+        duration: 2000,
+        useNativeDriver: true,
+      }),
+    ]).start();
+  }, []);
+
+  useEffect(() => {
+    Animated.sequence([
+      Animated.timing(sequenceValue, {
+        toValue: 1,
+        duration: 2000,
+        useNativeDriver: true,
+      }),
+      Animated.timing(sequenceValue, {
+        toValue: 1,
+        duration: 2000,
+        useNativeDriver: true,
+      }),
+    ]).start();
+  }, []);
+
   return (
-    // A view with text input and a prorgess bar, and make the progress bar change color based on the length of the text input
+    // make the counter with the text input using progress bar and animated
     <View style={styles.container}>
-      <Text style={styles.text}>
-        Enter some text to see the progress bar change color!
-      </Text>
+      <Text style={styles.text}>Welcome to our App </Text>
       <TextInput
         style={styles.input}
-        placeholder="Enter your text here"
-        placeholderTextColor="black"
-        onChangeText={handleTextChange}
+        placeholder="Type here to translate!"
+        onChangeText={setText}
+        defaultValue={text}
       />
-      <Progress.Bar
-        progress={counter / 100}
-        width={300}
-        height={80}
-        color={color}
-      />
+      <Progress.Bar progress={counter / 10} width={200} color={color} />
+      <Animated.View
+        style={{
+          transform: [
+            {
+              scale: springValue.interpolate({
+                inputRange: [0, 0.5, 1],
+                outputRange: [0, 1, 0],
+              }),
+            },
+          ],
+        }}
+      >
+        <Text style={styles.text}>Spring</Text>
+      </Animated.View>
+      <Animated.View
+        style={{
+          transform: [
+            {
+              scale: paralellValue.interpolate({
+                inputRange: [0, 0.5, 1],
+                outputRange: [0, 1, 0],
+              }),
+            },
+          ],
+        }}
+      >
+        <Text style={styles.text}>Paralell</Text>
+      </Animated.View>
+      <Animated.View
+        style={{
+          transform: [
+            {
+              scale: sequenceValue.interpolate({
+                inputRange: [0, 0.5, 1],
+                outputRange: [0, 1, 0],
+              }),
+            },
+          ],
+        }}
+      >
+        <Text style={styles.text}>Sequence</Text>
+      </Animated.View>
     </View>
   );
 }
 
-// Styling
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#D0D0D2',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: Constants.statusBarHeight,
   },
   text: {
-    padding: 40,
-    fontSize: 30,
-    color: 'black',
+    fontSize: 20,
     fontWeight: 'bold',
   },
   input: {
-    width: 300,
-    height: 100,
-    backgroundColor: '#fff',
-    margin: 10,
-    padding: 8,
-    color: 'black',
-    borderRadius: 14,
-    fontSize: 18,
-    fontWeight: '500',
-    borderColor: 'black',
+    height: 40,
+    margin: 12,
     borderWidth: 1,
   },
 });
