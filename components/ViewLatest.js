@@ -47,7 +47,9 @@ function ViewLatest({ navigation }) {
           keyExtractor={({ id }, index) => id}
           renderItem={({ item }) => (
             <View style={styles.text}>
-              <Text>{item.title}</Text>
+              <Text
+                style={styles.textdata}
+              >{item.title}</Text>
               <Text>{item.description}</Text>
               <Button
                 title="Leave a comment"
@@ -65,7 +67,7 @@ function ViewLatest({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#D0D0D2',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -117,10 +119,18 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    fontSize: 30,
+    fontWeight: '500',
+    fontSize: 20,
     alignSelf: 'center',
     color: 'red',
   },
+
+  textdata: {
+    fontSize: 20,
+    alignSelf: 'center',
+    color: 'black',
+  },
+
 });
 
 export default ViewLatest;

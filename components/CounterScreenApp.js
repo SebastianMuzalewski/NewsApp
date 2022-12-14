@@ -30,26 +30,27 @@ const CounterScreen = () => {
   const counter = useSelector((state) => state.counter);
 
   return (
+    // make a view for buttons and text to display the counter, make sure the buttons are touchable and the text is centered and the number is large
     <View style={styles.container}>
       <Text style={styles.text}>{counter}</Text>
-      <View style={{ flexDirection: 'row' }}>
+      <View style={styles.button}>
         <TouchableHighlight
-          style={{ ...styles.button, backgroundColor: 'red' }}
-          onPress={() => dispatch(decrement())}
-        >
-          <Text>-</Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          style={{ ...styles.button, backgroundColor: 'grey' }}
-          onPress={() => dispatch(reset())}
-        >
-          <Text>Reset</Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          style={{ ...styles.button, backgroundColor: 'limegreen' }}
           onPress={() => dispatch(increment())}
+          style={styles.button}
         >
-          <Text>+</Text>
+          <Text style={styles.text}>+</Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          onPress={() => dispatch(decrement())}
+          style={styles.button}
+        >
+          <Text style={styles.text}>-</Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          onPress={() => dispatch(reset())}
+          style={styles.button}
+        >
+          <Text style={styles.text}>Reset</Text>
         </TouchableHighlight>
       </View>
     </View>
@@ -66,7 +67,7 @@ export default function CounterScreenApp() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#D0D0D2',
     alignItems: 'center',
     justifyContent: 'center',
   },

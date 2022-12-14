@@ -31,9 +31,8 @@ function SpinningLogo() {
       toValue: 1,
       duration: 1500,
       easing: Easing.linear,
-     useNativeDriver:true,
-    // use native driver supposed to get rid of this error? 
-    
+      useNativeDriver: true,
+      // use native driver supposed to get rid of this error?
     }).start(() => spin());
   };
 
@@ -42,7 +41,14 @@ function SpinningLogo() {
       <Animated.View style={{ transform: [{ rotate }] }}>
         <Image
           source={require('../assets/Logo.png')}
-          style={{ width: 200, height: 200, alignSelf: 'center', borderRadius: 200/2, borderColor: 'black', borderWidth: 3 }}
+          style={{
+            width: 200,
+            height: 200,
+            alignSelf: 'center',
+            borderRadius: 200 / 2,
+            borderColor: 'black',
+            borderWidth: 3,
+          }}
         />
       </Animated.View>
     </View>
@@ -62,11 +68,20 @@ function BoxExplination(props) {
           width: 100,
           borderColor: 'black',
           borderWidth: 3,
-          width: 175
+          width: 175,
         },
       ]}
     >
-      <Image source={props.source} style={{ width: 150, height: 150, alignSelf: 'center', borderColor: 'black', borderWidth: 3}}/>
+      <Image
+        source={props.source}
+        style={{
+          width: 150,
+          height: 150,
+          alignSelf: 'center',
+          borderColor: 'black',
+          borderWidth: 3,
+        }}
+      />
       <Text style={{ color: props.TextColor }}>{props.Text}</Text>
     </Animated.View>
   );
@@ -76,35 +91,42 @@ function About() {
   const dev01 = useRef(new Animated.Value(0)).current;
   const dev02 = useRef(new Animated.Value(0)).current;
 
- 
   Animated.spring(dev02, { toValue: dev01 }).start();
   Animated.spring(dev01, { toValue: 350 }).start();
 
   return (
     <View>
-      <Text style = {{
-        marginTop: 25,
-        marginBottom: 25,
-        textAlign: 'center',
-        fontWeight: 'bold',
-        fontStyle: 'italic',
-        fontSize: 20}}
-        >Dispatch Times Logo!</Text>
+      <Text
+        style={{
+          marginTop: 25,
+          marginBottom: 25,
+          textAlign: 'center',
+          fontWeight: 'bold',
+          fontStyle: 'italic',
+          fontSize: 20,
+        }}
+      >
+        Dispatch Times Logo!
+      </Text>
       <SpinningLogo />
-      <Text style = {{
-        marginTop: 25,
-        textAlign: 'center',
-        fontWeight: 'bold',
-        fontStyle: 'italic',
-        fontSize: 20,}}
-        >The Developers who made this application!</Text>
+      <Text
+        style={{
+          marginTop: 25,
+          textAlign: 'center',
+          fontWeight: 'bold',
+          fontStyle: 'italic',
+          fontSize: 20,
+        }}
+      >
+        The Developers who made this application!
+      </Text>
       <BoxExplination
         Top={dev01}
         Text="Sebastain Muzalewski"
         Color="#94AC02"
         TextColor="black"
         Left={210}
-        source={require('../assets/dev01.png')}   
+        source={require('../assets/dev01.png')}
       />
       <BoxExplination
         Top={dev02}
@@ -112,7 +134,7 @@ function About() {
         Color="#70D1F4"
         TextColor="black"
         Left={10}
-        source={require('../assets/dev02.png')}  
+        source={require('../assets/dev02.png')}
       />
     </View>
   );

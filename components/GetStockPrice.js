@@ -114,11 +114,15 @@ function GetStockPrice() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#D0D0D2',
     alignItems: 'center',
     justifyContent: 'center',
   },
   text: {
+    fontStyle: 'italic',
+    fontFamily: 'sans-serif',
+    fontWeight: '800',
+    color: '#000',
     padding: 40,
     fontSize: 20,
   },

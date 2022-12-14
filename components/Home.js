@@ -88,7 +88,6 @@ function Home({ navigation }) {
         style={{
           position: 'absolute',
           top: ddT.x,
-          backgroundColor: 'white',
           margin: 15,
         }}
       >
@@ -133,7 +132,6 @@ function Home({ navigation }) {
           title="Latest News"
           onPress={() => navigation.navigate('ViewLatest')}
           styles={styles.button}
-      
         ></Button>
       </Animated.View>
 
@@ -149,22 +147,13 @@ function Home({ navigation }) {
           title="Animation Page "
           onPress={() => navigation.navigate('SecondaryAnimation')}
           styles={styles.button}
-          
-        >
-
-        </Button>
+        ></Button>
 
         <Button
           title="Stock Price Page  "
           onPress={() => navigation.navigate('GetStockPrice')}
           styles={styles.button}
-       
-        >
-          
-        </Button>
-
-
-
+        ></Button>
       </Animated.View>
 
       <Animated.View
@@ -179,7 +168,6 @@ function Home({ navigation }) {
           title="About the Devs"
           onPress={() => navigation.navigate('About')}
           styles={styles.button}
-      
         ></Button>
       </Animated.View>
 
@@ -195,7 +183,6 @@ function Home({ navigation }) {
           title="Progress bar"
           onPress={() => navigation.navigate('ProgressBar')}
           styles={styles.button}
-  
         ></Button>
       </Animated.View>
 
@@ -211,7 +198,6 @@ function Home({ navigation }) {
           title="Go to our Counter"
           onPress={() => navigation.navigate('CounterScreenApp')}
           styles={styles.button}
-     
         ></Button>
       </Animated.View>
     </View>
@@ -221,7 +207,7 @@ function Home({ navigation }) {
 //Styling
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: '#D0D0D2',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -295,11 +281,12 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   modalSection: {
+    backgroundColor: '#D0D0D2',
     flex: 13,
     padding: 20,
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  },
 });
 
 export default Home;

@@ -68,7 +68,7 @@ function ProgressBar() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'skyblue',
+    backgroundColor: '#D0D0D2',
     alignItems: 'center',
     justifyContent: 'center',
   },

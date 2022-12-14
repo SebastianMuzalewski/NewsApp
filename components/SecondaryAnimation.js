@@ -1,9 +1,4 @@
-/* @Navbar Page: 2 | Financial News
- * Breifing: This is responsible for rendering financialNews api page of the application.
- * As well provide a search functionality for users to search for an new article
- * API01: View news from api | Status: Not Implemented | Purpose: To show a list of news apis
- * Animation03: Shaking Search | Status; Nearly Complete | Purpose: To show the user where the search bar is
- */
+
 
 import React from 'react';
 
@@ -51,9 +46,10 @@ function SecondaryAnimation({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Animated.View style={{ transform: [{ translateX: translation.x }] }}>
+      <Animated.View >
         <Search />
       </Animated.View>
+
     </View>
   );
 }
