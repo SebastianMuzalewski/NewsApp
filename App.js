@@ -11,8 +11,6 @@
  */
 
 // First API source: (https://newsapi.org/) - Key: 4a5e392a47c042e6b534cffbfe4fa64d
-// Second API souuce: (https://rapidapi.com/mikilior1/api/FinancialTimes) - Key:'7b8adb8462mshc0dd83d3d7c8387p1d2206jsn859e1daee4e2
-
 // Imported Components
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
@@ -22,13 +20,15 @@ import Home from './components/Home';
 import Search from './components/Search';
 import ViewLatest from './components/ViewLatest';
 import About from './components/About';
-import FinancialNews from './components/FinancialNews';
+import SecondaryAnimation from './components/SecondaryAnimation';
 import Comment from './components/Comment';
 import ProgressBar from './components/ProgressBar';
 import CounterScreenApp from './components/CounterScreenApp';
+import GetStockPrice from './components/GetStockPrice';
 
 //START OF NAVIGATION IMPORTS
 import { NavigationContainer } from '@react-navigation/native';
+
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 //END OF NAVIGATION IMPORTS
@@ -42,11 +42,12 @@ export default function App() {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Search" component={Search} />
         <Stack.Screen name="ViewLatest" component={ViewLatest} />
-        <Stack.Screen name="FinancialNews" component={FinancialNews} />
+        <Stack.Screen name="SecondaryAnimation"component={SecondaryAnimation} />
         <Stack.Screen name="About" component={About} />
         <Stack.Screen name="Comment" component={Comment} />
         <Stack.Screen name="ProgressBar" component={ProgressBar} />
         <Stack.Screen name="CounterScreenApp" component={CounterScreenApp} />
+        <Stack.Screen name="GetStockPrice" component={GetStockPrice} />
       </Stack.Navigator>
     </NavigationContainer>
   );

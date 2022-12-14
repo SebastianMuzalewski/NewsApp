@@ -10,7 +10,7 @@
 import React from 'react';
 // Necessary react native components 
 import { StyleSheet, Text, View, Button } from 'react-native';
-import FinancialNews from './FinancialNews';
+
 import Comment from './Comment';
 // this is a new component that we will use for a user to input there message this component will demonstrate alerts.
 

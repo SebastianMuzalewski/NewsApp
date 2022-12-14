@@ -145,10 +145,23 @@ function Home({ navigation }) {
         }}
       >
         <Button
-          title="Financial News"
-          onPress={() => navigation.navigate('FinancialNews')}
+          title="Animation Page "
+          onPress={() => navigation.navigate('SecondaryAnimation')}
           styles={styles.button}
-        ></Button>
+        >
+
+        </Button>
+
+        <Button
+          title="Stock Price Page  "
+          onPress={() => navigation.navigate('GetStockPrice')}
+          styles={styles.button}
+        >
+          
+        </Button>
+
+
+
       </Animated.View>
 
       <Animated.View
@@ -189,7 +202,7 @@ function Home({ navigation }) {
           ],
         }}
       >
-      <Button
+        <Button
           title="Go to our Counter"
           onPress={() => navigation.navigate('CounterScreenApp')}
           styles={styles.button}

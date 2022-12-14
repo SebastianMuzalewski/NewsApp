@@ -17,40 +17,9 @@ import { useState, useEffect, useRef } from 'react';
 import Search from './Search';
 StyleSheet;
 
-function DisplayFinanceNews() {
-  const [isLoading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
-  const API =
-    'https://api.marketaux.com/v1/news/all?symbols=TSLA%2CAMZN%2CMSFT&filter_entities=true&language=en&api_token=ab5LvS5Ha5miJ57KuwP1JgZUmVi4iph8aCjqaY10';
 
-  // display the data from the api in a flatlist
-  useEffect(() => {
-    fetch(API)
-      .then((response) => response.json())
-      .then((json) => setData(json))
-      .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
-  }, []);
-  return (
-    <View style={styles.container}>
-      {isLoading ? (
-        <ActivityIndicator />
-      ) : (
-        <FlatList
-          data={data}
-          keyExtractor={({ id }, index) => id}
-          renderItem={({ item }) => (
-            <Text>
-              {item.title}, {item.description}
-            </Text>
-          )}
-        />
-      )}
-    </View>
-  );
-}
 
-function FinancialNews({ navigation }) {
+function SecondaryAnimation({ navigation }) {
   // Search bar animation
   const translation = useRef(new Animated.ValueXY({ x: 0, y: 0 })).current;
   useEffect(() => {
@@ -100,4 +69,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FinancialNews;
+export default SecondaryAnimation;
