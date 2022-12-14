@@ -18,6 +18,8 @@ import { Provider } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
+import { useState } from 'react';
+
 import store from '../redux/store';
 
 import { increment } from '../redux/reducer';
@@ -25,37 +27,36 @@ import { decrement } from '../redux/reducer';
 import { reset } from '../redux/reducer';
 // END OF REDUX IMPORTS
 
-const CounterScreen = () => {
+function CounterScreen() {
+  const count = useSelector((state) => state.count);
   const dispatch = useDispatch();
-  const counter = useSelector((state) => state.counter);
+  const [countDisplay, setCountDisplay] = useState(0);
 
   return (
-    // make a view for buttons and text to display the counter, make sure the buttons are touchable and the text is centered and the number is large
     <View style={styles.container}>
-      <Text style={styles.text}>{counter}</Text>
-      <View style={styles.button}>
-        <TouchableHighlight
-          onPress={() => dispatch(increment())}
-          style={styles.button}
-        >
-          <Text style={styles.text}>+</Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          onPress={() => dispatch(decrement())}
-          style={styles.button}
-        >
-          <Text style={styles.text}>-</Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          onPress={() => dispatch(reset())}
-          style={styles.button}
-        >
-          <Text style={styles.text}>Reset</Text>
-        </TouchableHighlight>
-      </View>
+      <Text style={styles.text}>Counter Screen</Text>
+      <Text style={styles.textdisplay}>{count}</Text>
+      <TouchableHighlight
+        style={[styles.button, { backgroundColor: '#00FF00' }]}
+        onPress={() => dispatch(increment())}
+      >
+        <Text style={styles.text}>+</Text>
+      </TouchableHighlight>
+      <TouchableHighlight
+        style={[styles.button, { backgroundColor: '#FF0000' }]}
+        onPress={() => dispatch(decrement())}
+      >
+        <Text style={styles.text}>-</Text>
+      </TouchableHighlight>
+      <TouchableHighlight
+        style={[styles.button, { backgroundColor: '#0000FF' }]}
+        onPress={() => dispatch(reset())}
+      >
+        <Text style={styles.text}>Reset</Text>
+      </TouchableHighlight>
     </View>
   );
-};
+}
 
 export default function CounterScreenApp() {
   return (
@@ -82,5 +83,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     margin: 10,
+  },
+  textdisplay: {
+    fontSize: 50,
+    marginBottom: 20,
   },
 });
