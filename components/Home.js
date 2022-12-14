@@ -133,6 +133,7 @@ function Home({ navigation }) {
           title="Latest News"
           onPress={() => navigation.navigate('ViewLatest')}
           styles={styles.button}
+      
         ></Button>
       </Animated.View>
 
@@ -148,6 +149,7 @@ function Home({ navigation }) {
           title="Animation Page "
           onPress={() => navigation.navigate('SecondaryAnimation')}
           styles={styles.button}
+          
         >
 
         </Button>
@@ -156,6 +158,7 @@ function Home({ navigation }) {
           title="Stock Price Page  "
           onPress={() => navigation.navigate('GetStockPrice')}
           styles={styles.button}
+       
         >
           
         </Button>
@@ -176,6 +179,7 @@ function Home({ navigation }) {
           title="About the Devs"
           onPress={() => navigation.navigate('About')}
           styles={styles.button}
+      
         ></Button>
       </Animated.View>
 
@@ -191,6 +195,7 @@ function Home({ navigation }) {
           title="Progress bar"
           onPress={() => navigation.navigate('ProgressBar')}
           styles={styles.button}
+  
         ></Button>
       </Animated.View>
 
@@ -206,6 +211,7 @@ function Home({ navigation }) {
           title="Go to our Counter"
           onPress={() => navigation.navigate('CounterScreenApp')}
           styles={styles.button}
+     
         ></Button>
       </Animated.View>
     </View>
@@ -223,6 +229,7 @@ const styles = StyleSheet.create({
   text: {
     color: 'white',
     padding: 40,
+    bottom: 20,
     position: 'relative',
     fontSize: 30,
     color: 'black',
@@ -240,8 +247,9 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: 'center',
-    backgroundColor: '#DDDDDD',
+    backgroundColor: 'red',
     padding: 40,
+    margin: 10,
   },
   buttonOpen: {
     backgroundColor: '#F194FF',
@@ -291,7 +299,7 @@ const styles = StyleSheet.create({
     padding: 20,
     justifyContent: 'center',
     alignItems: 'center',
-  },
+  }
 });
 
 export default Home;
